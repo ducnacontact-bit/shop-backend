@@ -1,8 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-require("./services/telegram.service");
-
+// require("./services/telegram.service");
+if (process.env.TELEGRAM_BOT_TOKEN) {
+  require("./services/telegram.service");
+}
 const sepayRoutes = require("./routes/sepay.routes");
 const productRoutes = require("./routes/product.routes");
 const variantRoutes = require("./routes/variant.routes");
